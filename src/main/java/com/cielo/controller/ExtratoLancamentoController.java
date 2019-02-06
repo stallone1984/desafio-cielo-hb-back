@@ -14,6 +14,9 @@ import com.cielo.dto.ExtratoLancamentoView;
 import com.cielo.exception.DadoObrigatorioException;
 import com.cielo.service.ExtratoLancamentoService;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 /**
  * Classe controller que irá expor a API para consulta de extrato de lançamentos
  * 
@@ -28,6 +31,9 @@ public class ExtratoLancamentoController {
 	@Autowired
 	private ExtratoLancamentoService extratoLancamentoService;
 	
+	@ApiResponses({
+		@ApiResponse(code = 422, message = "Erro de validação nos dados do sistema legado")
+	})
 	@GetMapping("/listar")
 	public ResponseEntity<DadosRetornoApiDTO> importarExtratosLancamentos(){
 		try {
