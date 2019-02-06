@@ -2,6 +2,12 @@ package com.cielo.dto;
 
 import java.math.BigDecimal;
 
+/**
+ * 
+ * @author heitor bernardino
+ *
+ */
+
 public class TotalControleLancamentoDTO {
 
 	private Long quantidadeLancamentos;

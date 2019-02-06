@@ -1,35 +1,41 @@
 package com.cielo.dto;
 
+/**
+ * 
+ * @author heitor bernardino
+ *
+ */
+
 public class DadosDomicilioBancarioDTO {
 
-	private Long codigoBanco;
-	private Long numeroAgencia;
+	private Integer codigoBanco;
+	private Integer numeroAgencia;
 	private String numeroContaCorrente;
 	
 	public DadosDomicilioBancarioDTO() {
 		super();
 	}
 
-	public DadosDomicilioBancarioDTO(Long codigoBanco, Long numeroAgencia, String numeroContaCorrente) {
+	public DadosDomicilioBancarioDTO(Integer codigoBanco, Integer numeroAgencia, String numeroContaCorrente) {
 		super();
 		this.codigoBanco = codigoBanco;
 		this.numeroAgencia = numeroAgencia;
 		this.numeroContaCorrente = numeroContaCorrente;
 	}
 
-	public Long getCodigoBanco() {
+	public Integer getCodigoBanco() {
 		return codigoBanco;
 	}
 
-	public void setCodigoBanco(Long codigoBanco) {
+	public void setCodigoBanco(Integer codigoBanco) {
 		this.codigoBanco = codigoBanco;
 	}
 
-	public Long getNumeroAgencia() {
+	public Integer getNumeroAgencia() {
 		return numeroAgencia;
 	}
 
-	public void setNumeroAgencia(Long numeroAgencia) {
+	public void setNumeroAgencia(Integer numeroAgencia) {
 		this.numeroAgencia = numeroAgencia;
 	}
 

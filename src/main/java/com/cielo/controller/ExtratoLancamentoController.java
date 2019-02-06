@@ -14,22 +14,19 @@ import com.cielo.dto.ExtratoLancamentoView;
 import com.cielo.exception.DadoObrigatorioException;
 import com.cielo.service.ExtratoLancamentoService;
 
+/**
+ * Classe controller que irá expor a API para consulta de extrato de lançamentos
+ * 
+ * @author heitor bernardino
+ *
+ */
+
 @RestController
 @RequestMapping("/extrato-lancamento")
 public class ExtratoLancamentoController {
 
 	@Autowired
 	private ExtratoLancamentoService extratoLancamentoService;
-	
-	/*@PostMapping("/importar")
-	public DadosRetornoApiDTO importarExtratosLancamentos(@RequestParam("file") MultipartFile file){
-		try {
-			ExtratoLancamentoDTO extrato = extratoLancamentoService.importarExtratosLancamentos(file.getInputStream());
-			return new DadosRetornoApiDTO(true, "Dados importados com sucesso", extrato);
-		} catch (Exception e) {
-			return new DadosRetornoApiDTO(false, "Erro ao importar os dados", e.getMessage());
-		}
-	}*/
 	
 	@GetMapping("/listar")
 	public ResponseEntity<DadosRetornoApiDTO> importarExtratosLancamentos(){

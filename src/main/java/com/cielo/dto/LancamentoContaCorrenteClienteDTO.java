@@ -1,6 +1,12 @@
 package com.cielo.dto;
 
 import java.util.ArrayList;
+
+/**
+ * 
+ * @author heitor bernardino
+ *
+ */
 import java.util.List;
 
 public class LancamentoContaCorrenteClienteDTO {

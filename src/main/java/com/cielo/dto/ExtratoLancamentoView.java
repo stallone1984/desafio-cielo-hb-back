@@ -1,6 +1,14 @@
 package com.cielo.dto;
 
 import java.math.BigDecimal;
+
+/**
+ * Classe com os dados que serão exibidos na tela de consulta
+ * de extratos de lançamentos.
+ * 
+ * @author heitor bernardino
+ *
+ */
 import java.time.LocalDate;
 
 public class ExtratoLancamentoView {

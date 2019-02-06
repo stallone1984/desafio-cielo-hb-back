@@ -1,5 +1,11 @@
 package com.cielo.dto;
 
+/**
+ * 
+ * @author heitor bernardino
+ *
+ */
+
 public class DadosRetornoApiDTO {
 
 	private boolean sucesso;

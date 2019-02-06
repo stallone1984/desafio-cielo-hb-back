@@ -19,11 +19,26 @@ import com.cielo.exception.LeituraDadosExtratoException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Serviço que irá ler os dados do sistema legado e retornar os dados processados 
+ * para o controller
+ * 
+ * @author heitor bernardino
+ *
+ */
+
 @Service
 public class ExtratoLancamentoService {
 	
 	private static final Logger log = LoggerFactory.getLogger(ExtratoLancamentoService.class);
 
+	/**
+	 * Método responsável por orquestrar a leitura dos dados do sistema antigo 
+	 * e retornar uma lista de {@link ExtratoLancamentoView} com os dados que serão
+	 * exibidos na tela de consulta de extratos de lançamentos.
+	 * 
+	 * @return
+	 */
 	public List<ExtratoLancamentoView> listarExtratosLancamentos(){
 		try {
 			ExtratoLancamentoDTO lancamento = obterExtratoLancamento();
@@ -38,6 +53,9 @@ public class ExtratoLancamentoService {
 		}
 	}
 	
+	/**
+	 * Obtem os dados do sistema legado e converte para os DTOs do sistema atual.
+	 */
 	public ExtratoLancamentoDTO obterExtratoLancamento() {
 		ObjectMapper mapper = new ObjectMapper();
 		TypeReference<ExtratoLancamentoDTO> typeReference = new TypeReference<ExtratoLancamentoDTO>(){};
@@ -52,6 +70,11 @@ public class ExtratoLancamentoService {
 		}
 	}
 	
+	/**
+	 * Verifica se os campos mínimos necessários foram informados no sistema legado.
+	 * 
+	 * @param extratoLancamento Instância de {@link ExtratoLancamentoDTO} com os dados a serem validados.
+	 */
 	public void validarExtraLancamento(ExtratoLancamentoDTO extratoLancamento) {
 		if(CollectionUtils.isEmpty(extratoLancamento.getListaControleLancamento())) {
 			return;
@@ -93,6 +116,17 @@ public class ExtratoLancamentoService {
 		}
 	}
 
+	/**
+	 * A partir dos dados obtidos do sistema legado e convertido para as classes DTOs,
+	 * gera uma lista de {@link ExtratoLancamentoView} com apenas os dados necessários para
+	 * serem exibidos na tela de consulta de extratos de lançamentos.
+	 * 
+	 * @param extratoLancamentoDTO Uma instância da classe {@link ExtratoLancamentoDTO} obtida
+	 * através da conersão dos dados vindos do sistema legado.
+	 * 
+	 * @return Uma {@link List} de {@link ExtratoLancamentoView} com os dados que serão 
+	 * exibidos na tela de consulta de extratos de lançamentos.
+	 */
 	public List<ExtratoLancamentoView> montarExtratoLancamentoView(ExtratoLancamentoDTO extratoLancamentoDTO) {
 		List<ExtratoLancamentoView> extratos = new ArrayList<>();
 		
@@ -115,6 +149,14 @@ public class ExtratoLancamentoService {
 		return extratos;
 	}
 
+	/**
+	 * Monta uma {@link String} com os dados bancários que serão exibidos na 
+	 * tela de consulta de extratos de lançamentos.
+	 * 
+	 * @param lancamento Instância de {@link ControleLancamentoDTO} com os dados bancários.
+	 * 
+	 * @return Uma {@link String} contendo as informações de banco, agência e conta corrente.
+	 */
 	public String obterDadosBancarios(ControleLancamentoDTO lancamento) {
 		StringBuilder dadosBancarios = new StringBuilder();
 		dadosBancarios.append(lancamento.getNomeBanco());

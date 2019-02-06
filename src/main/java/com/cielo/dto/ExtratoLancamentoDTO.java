@@ -3,6 +3,12 @@ package com.cielo.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author heitor bernardino
+ *
+ */
+
 public class ExtratoLancamentoDTO {
 
 	private TotalControleLancamentoDTO totalControleLancamento;
