@@ -35,7 +35,7 @@ public class ExtratoLancamentoController {
 			return ResponseEntity.status(HttpStatus.OK).body(
 					new DadosRetornoApiDTO(true, "Dados importados com sucesso", extratos));
 		} catch (DadoObrigatorioException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+			return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(
 					new DadosRetornoApiDTO(false, "Erro ao importar os dados", e.getMessage()));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
